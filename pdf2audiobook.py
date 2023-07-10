@@ -28,7 +28,7 @@ def convert_to_audio(filename, location):
 layout = [
     [sg.Text("Input File:"), sg.Input(key='-IN-'), sg.FileBrowse(file_types=(("PDF Files", "*.pdf"),))],
     [sg.Text("Download Location:"), sg.Input(key='-IN2-'), sg.FolderBrowse()],
-    [sg.Exit(), sg.Button("Play Audiobook")]
+    [sg.Exit(), sg.Button("Create MP3")]
 ]
 
 window = sg.Window("PDF Text to Speech", layout)
@@ -37,6 +37,6 @@ while True:
     event, values = window.read()
     if event in (sg.WINDOW_CLOSED, "Exit"):
         break
-    if event == "Play Audiobook":
+    if event == "Create MP3":
         convert_to_audio(filename=values["-IN-"], location=values["-IN2-"])
 window.close()
